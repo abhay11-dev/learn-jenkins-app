@@ -2,25 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Dependencies') {
-            agent {
-                docker { image 'node:18-alpine' }
-            }
+        stage('Hello') {
             steps {
-                sh 'node -v'
-                sh 'npm -v'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Build step running...'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Tests would run here...'
+                echo 'Hello World from Jenkins Pipeline!'
             }
         }
     }
