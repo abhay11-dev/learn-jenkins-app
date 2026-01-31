@@ -19,17 +19,15 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-            }
-            steps{
-                wcho "Build stage completed....."
+                echo 'Build stage completed.....'
             }
         }
 
-        stage("Test"){
-            steps{
-                echo "Inside Test Stage"
+        stage('Test') {
+            steps {
+                echo 'Inside Test Stage'
                 sh '''
-                    test -f 'build/index.html'
+                    test -f build/index.html
                 '''
             }
         }
