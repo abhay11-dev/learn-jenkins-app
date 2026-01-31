@@ -3,17 +3,16 @@ pipeline {
 
     stages {
         stage('Docker') {
-            agent{
-                echo 'Inside Docker Agent'
+            agent {
                 docker {
                     image 'node:18-alpine'
                     reuseNode true
-
                 }
             }
             steps {
                 echo 'Inside Docker Stage'
-                sh ''' 
+                sh '''
+                    ls -la
                     node --version
                     npm --version
                     npm ci
