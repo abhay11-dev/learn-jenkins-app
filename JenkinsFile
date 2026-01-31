@@ -28,8 +28,15 @@ pipeline {
                 echo 'Inside Test Stage'
                 sh '''
                     test -f build/index.html
+                    npm test
                 '''
             }
+        }
+    }
+
+    post{
+        always {
+            echo 'Pipeline completed.'
         }
     }
 }
