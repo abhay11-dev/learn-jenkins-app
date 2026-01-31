@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Docker') {
+        stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -19,6 +19,15 @@ pipeline {
                     npm run build
                     ls -la
                 '''
+            }
+            steps{
+                wcho "Build stage completed....."
+            }
+        }
+
+        stage("Test"){
+            steps{
+                echo "Inside Test Stage"
             }
         }
     }
